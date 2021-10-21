@@ -2,6 +2,12 @@ from abc import ABC
 
 
 class Questions(ABC):
+    """
+    These questions are structured around the Python 2 course on codecademy
+    """
+
+    # 1. Hello World
+
     def get_and_capitalise_second_letter_of_string(self, string):
         """
         This function should receive a string at least 2 characters long,
