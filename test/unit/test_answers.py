@@ -18,3 +18,8 @@ class TestAnswers:
         assert answers.get_third_and_fourth_letters_of_string("test") == "st"
 
         assert answers.get_third_and_fourth_letters_of_string("JNiUnfon") == "iU"
+
+    def test_add_new_string_to_string(self, answers):
+        assert answers.add_new_string_to_string("is") == "isnew"
+
+        assert answers.add_new_string_to_string("is not ") == "is not new"

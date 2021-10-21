@@ -17,3 +17,11 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    def add_new_string_to_string(self, string):
+        """
+        This function should receive a string, and
+        return that string with the string 'new' joined to the end
+        """
+
+        return NotImplemented
