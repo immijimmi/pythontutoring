@@ -17,16 +17,6 @@ class TestAnswers:
 
         assert answers.example_question_add_2(-1) == 1
 
-    def test_get_and_capitalise_second_letter_of_string(self, answers):
-        assert answers.get_and_capitalise_second_letter_of_string("test") == "E"
-
-        assert answers.get_and_capitalise_second_letter_of_string("145434") == "4"
-
-    def test_get_third_and_fourth_letters_of_string(self, answers):
-        assert answers.get_third_and_fourth_letters_of_string("test") == "st"
-
-        assert answers.get_third_and_fourth_letters_of_string("JNiUnfon") == "iU"
-
     def test_add_new_string_to_string(self, answers):
         assert answers.add_new_string_to_string("is") == "isnew"
 
@@ -36,3 +26,13 @@ class TestAnswers:
         assert answers.multiply_numbers(5, 4) == 20
 
         assert answers.multiply_numbers(3, 6) == 18
+
+    def test_get_and_capitalise_second_letter_of_string(self, answers):
+        assert answers.get_and_capitalise_second_letter_of_string("test") == "E"
+
+        assert answers.get_and_capitalise_second_letter_of_string("145434") == "4"
+
+    def test_get_third_and_fourth_letters_of_string(self, answers):
+        assert answers.get_third_and_fourth_letters_of_string("test") == "st"
+
+        assert answers.get_third_and_fourth_letters_of_string("JNiUnfon") == "iU"

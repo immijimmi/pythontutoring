@@ -20,23 +20,7 @@ class Questions(ABC):
         This function should receive a number, and return the provided number with 2 added to it
         """
 
-    # 1. Hello World
-
-    def get_and_capitalise_second_letter_of_string(self, string):
-        """
-        This function should receive a string at least 2 characters long,
-        and return the capital of the second character
-        """
-
-        return NotImplemented
-
-    def get_third_and_fourth_letters_of_string(self, string):
-        """
-        This function should receive a string at least 4 characters long,
-        and return the third and fourth characters joined together
-        """
-
-        return NotImplemented
+    # 1. Python Syntax
 
     def add_new_string_to_string(self, string):
         """
@@ -50,6 +34,24 @@ class Questions(ABC):
         """
         This function should receive two numbers, and return
         the multiple of those numbers
+        """
+
+        return NotImplemented
+
+    # 2. Strings and Console Output
+
+    def get_and_capitalise_second_letter_of_string(self, string):
+        """
+        This function should receive a string at least 2 characters long,
+        and return the capital of the second character
+        """
+
+        return NotImplemented
+
+    def get_third_and_fourth_letters_of_string(self, string):
+        """
+        This function should receive a string at least 4 characters long,
+        and return the third and fourth characters joined together
         """
 
         return NotImplemented
