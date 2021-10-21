@@ -1,5 +1,7 @@
 import pytest
 
+from datetime import datetime
+
 from answers import Answers
 
 
@@ -41,3 +43,8 @@ class TestAnswers:
         assert answers.string_length_in_a_sentence("eeaa") == "Your string is 4 characters long!"
 
         assert answers.string_length_in_a_sentence("new_length") == "Your string is 10 characters long!"
+
+    def test_get_minutes_from_datetime(self, answers):
+        now = datetime.now()
+
+        assert answers.get_minutes_from_datetime(now) == now.minute

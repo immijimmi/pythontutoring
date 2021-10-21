@@ -38,7 +38,7 @@ class Questions(ABC):
 
         return NotImplemented
 
-    # 2. Strings and Console Output
+    # 2.1. Strings and Console Output
 
     def get_and_capitalise_second_letter_of_string(self, string):
         """
@@ -60,6 +60,15 @@ class Questions(ABC):
         """
         This function should receive a string, and print the sentence:
         "Your string is X characters long!", replacing X with the length of the string
+        """
+
+        return NotImplemented
+
+    # 2.2. Date and Time
+
+    def get_minutes_from_datetime(self, datetime_value):
+        """
+        This function should receive a datetime, and return just the minutes
         """
 
         return NotImplemented
