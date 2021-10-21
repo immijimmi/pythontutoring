@@ -23,3 +23,8 @@ class TestAnswers:
         assert answers.add_new_string_to_string("is") == "isnew"
 
         assert answers.add_new_string_to_string("is not ") == "is not new"
+
+    def test_multiply_numbers(self, answers):
+        assert answers.multiply_numbers(5, 4) == 20
+
+        assert answers.multiply_numbers(3, 6) == 18

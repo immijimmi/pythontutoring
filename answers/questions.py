@@ -25,3 +25,11 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    def multiply_numbers(self, number_1, number_2):
+        """
+        This function should receive two numbers, and return
+        the multiple of those numbers
+        """
+
+        return NotImplemented
