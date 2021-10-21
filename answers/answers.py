@@ -1,18 +1,5 @@
-class Answers:
-    @staticmethod
-    def get_and_capitalise_second_letter_of_string(string):
-        """
-        This function should receive a string at least 2 characters long,
-        and return the capital of the second character
-        """
+from .questions import Questions
 
-        return None
 
-    @staticmethod
-    def get_third_and_fourth_letters_of_string(string):
-        """
-        This function should receive a string at least 4 characters long,
-        and return the third and fourth characters joined together
-        """
-
-        return None
+class Answers(Questions):
+    pass
