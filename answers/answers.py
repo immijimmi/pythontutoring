@@ -7,3 +7,12 @@ class Answers:
         """
 
         return None
+
+    @staticmethod
+    def get_third_and_fourth_letters_of_string(string):
+        """
+        This function should receive a string at least 4 characters long,
+        and return the third and fourth characters joined together
+        """
+
+        return None
