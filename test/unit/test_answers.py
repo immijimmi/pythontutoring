@@ -36,3 +36,8 @@ class TestAnswers:
         assert answers.get_third_and_fourth_letters_of_string("test") == "st"
 
         assert answers.get_third_and_fourth_letters_of_string("JNiUnfon") == "iU"
+
+    def test_string_length_in_a_sentence(self, answers):
+        assert answers.string_length_in_a_sentence("eeaa") == "Your string is 4 characters long!"
+
+        assert answers.string_length_in_a_sentence("new_length") == "Your string is 10 characters long!"
