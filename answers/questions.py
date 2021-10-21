@@ -6,6 +6,20 @@ class Questions(ABC):
     These questions are structured around the Python 2 course on codecademy
     """
 
+    # Example questions
+
+    def example_question(self):
+        """
+        This function should return the string "example answer"
+        """
+
+        return NotImplemented
+
+    def example_question_add_2(self, number):
+        """
+        This function should receive a number, and return the provided number with 2 added to it
+        """
+
     # 1. Hello World
 
     def get_and_capitalise_second_letter_of_string(self, string):

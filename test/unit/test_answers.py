@@ -9,6 +9,14 @@ def answers():
 
 
 class TestAnswers:
+    def test_example_question(self, answers):
+        assert answers.example_question() == "example answer"
+
+    def test_example_question_add_2(self, answers):
+        assert answers.example_question_add_2(3) == 5
+
+        assert answers.example_question_add_2(-1) == 1
+
     def test_get_and_capitalise_second_letter_of_string(self, answers):
         assert answers.get_and_capitalise_second_letter_of_string("test") == "E"
 
