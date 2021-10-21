@@ -8,7 +8,7 @@ class Questions(ABC):
         and return the capital of the second character
         """
 
-        raise NotImplementedError
+        return NotImplemented
 
     def get_third_and_fourth_letters_of_string(self, string):
         """
@@ -16,4 +16,4 @@ class Questions(ABC):
         and return the third and fourth characters joined together
         """
 
-        raise NotImplementedError
+        return NotImplemented
