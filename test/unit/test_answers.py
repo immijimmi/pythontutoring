@@ -11,3 +11,5 @@ def answers():
 class TestAnswers:
     def test_get_and_capitalise_second_letter_of_string(self, answers):
         assert answers.get_and_capitalise_second_letter_of_string("test") == "E"
+
+        assert answers.get_and_capitalise_second_letter_of_string("145434") == "4"
