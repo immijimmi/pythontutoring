@@ -1,2 +1,5 @@
-class Answers:
+from .questions import Questions
+
+
+class Answers(Questions):
     pass
