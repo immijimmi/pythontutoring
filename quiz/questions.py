@@ -2,11 +2,8 @@ from abc import ABC
 
 
 class Questions(ABC):
-    """
-    These questions are structured around the Python 2 course on codecademy
-    """
 
-    # Example questions
+    # Example questions #
 
     def example_question(self):
         """
@@ -19,6 +16,11 @@ class Questions(ABC):
         """
         This function should receive a number, and return the provided number with 2 added to it
         """
+
+    # Course Questions #
+    """
+    These questions are structured around the Python 2 course on codecademy
+    """
 
     # 1. Python Syntax
     """
