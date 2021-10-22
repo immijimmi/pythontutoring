@@ -103,8 +103,8 @@ class Questions(ABC):
     """
     New concepts covered:
     - Comparison operators
-    - If, elif and else statements
-    - and, or and not statements
+    - `If`, `elif` and `else` statements
+    - `and`, `or` and `not` statements
     - Truthiness
     """
 
