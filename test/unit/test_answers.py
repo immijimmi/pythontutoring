@@ -1,6 +1,8 @@
 import pytest
 
+import random
 from datetime import datetime
+from string import ascii_uppercase, ascii_lowercase
 
 from answers import Answers
 
@@ -48,3 +50,31 @@ class TestAnswers:
         now = datetime.now()
 
         assert answers.get_minutes_from_datetime(now) == now.minute
+
+    # From this point on, parameters passed to Answer methods should be dynamically generated
+    # to prevent hard-coding the method return values using `if` statements
+
+    def test_is_all_uppercase(self, answers):
+        all_upper_string = "".join([random.choice(ascii_uppercase) for i in range(random.randint(1, 11))])
+        all_lower_string = "".join([random.choice(ascii_lowercase) for i in range(random.randint(1, 11))])
+
+        mixed_string = ""
+        mixed_string += "".join([random.choice(ascii_uppercase) for i in range(random.randint(1, 5))])
+        mixed_string += "".join([random.choice(ascii_lowercase) for i in range(random.randint(1, 5))])
+        mixed_string = list(mixed_string)
+        random.shuffle(mixed_string)
+        mixed_string = "".join(char for char in mixed_string)
+
+        assert answers.is_all_uppercase(all_upper_string)
+        assert not answers.is_all_uppercase(all_lower_string)
+        assert not answers.is_all_uppercase(mixed_string)
+
+    def test_both_numbers_are_even(self, answers):
+        even_numbers = [random.randrange(-100, 100, 2), random.randrange(-100, 100, 2)]
+        odd_numbers = [random.randrange(-99, 101, 2), random.randrange(-99, 101, 2)]
+
+        assert answers.both_numbers_are_even(*even_numbers)
+        assert not answers.both_numbers_are_even(*odd_numbers)
+
+        assert not answers.both_numbers_are_even(even_numbers[0], odd_numbers[0])
+        assert not answers.both_numbers_are_even(odd_numbers[0], even_numbers[0])
