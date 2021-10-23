@@ -92,5 +92,8 @@ class TestAnswers:
     def test_make_function_that_returns_object_type(self, answers):
         generated_func = answers.make_function_that_returns_object_type()
 
+        # Commented out the below check because if someone figures out they can do this, they deserve a pass
+        # assert generated_func is not type
+
         for obj in (2, "b", True, ValueError, lambda: None):
             assert generated_func(obj) == type(obj)
