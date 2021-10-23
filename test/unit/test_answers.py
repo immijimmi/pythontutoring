@@ -78,3 +78,13 @@ class TestAnswers:
 
         assert not answers.both_numbers_are_even(even_numbers[0], odd_numbers[0])
         assert not answers.both_numbers_are_even(odd_numbers[0], even_numbers[0])
+
+    def test_only_one_number_is_even(self, number_1, number_2):
+        even_numbers = [random.randrange(-100, 100, 2), random.randrange(-100, 100, 2)]
+        odd_numbers = [random.randrange(-99, 101, 2), random.randrange(-99, 101, 2)]
+
+        assert not answers.only_one_number_is_even(*even_numbers)
+        assert not answers.only_one_number_is_even(*odd_numbers)
+
+        assert answers.only_one_number_is_even(even_numbers[0], odd_numbers[0])
+        assert answers.only_one_number_is_even(odd_numbers[0], even_numbers[0])

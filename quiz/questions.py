@@ -123,3 +123,11 @@ class Questions(ABC):
         """
 
         raise NotImplemented
+
+    def only_one_number_is_even(self, number_1, number_2):
+        """
+        This function should receive two numbers, and return a boolean indicating
+        whether only one of them is even
+        """
+
+        raise NotImplemented
