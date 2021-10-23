@@ -131,3 +131,26 @@ class Questions(ABC):
         """
 
         raise NotImplemented
+
+    # 3.1. Pyglatin
+    """
+    New concepts covered:
+    - Index slicing
+    - str.isalpha()
+    """
+
+    # 4. Functions
+    """
+    New concepts covered:
+    - Creating a function
+    - type()
+    """
+
+    def make_function_that_returns_object_type(self):
+        """
+        This function should return another new function.
+        The new function should have one parameter, which will receive an object,
+        and should return the type of that object.
+        """
+
+        return NotImplemented

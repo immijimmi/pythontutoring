@@ -88,3 +88,9 @@ class TestAnswers:
 
         assert answers.only_one_number_is_even(even_numbers[0], odd_numbers[0])
         assert answers.only_one_number_is_even(odd_numbers[0], even_numbers[0])
+
+    def test_make_function_that_returns_object_type(self, answers):
+        generated_func = answers.make_function_that_returns_object_type()
+
+        for obj in (2, "b", True, ValueError, lambda: None):
+            assert generated_func(obj) == type(obj)
