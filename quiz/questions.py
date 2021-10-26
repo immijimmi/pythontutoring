@@ -4,7 +4,7 @@ from abc import ABC
 class Questions(ABC):
     """
     Each of the functions below (the individual sections that start with `def` and end with `return NotImplemented`)
-    should be copied into the answers file.
+    should be copied and pasted at the bottom of the answers file.
     To answer the question once it is has been copied there, replace `NotImplemented` with the value that the question
     is looking for. Any code that is needed to create that value can be written in the space directly above the
     `return` line, and if multiple lines are needed it is fine to add more lines in that space
