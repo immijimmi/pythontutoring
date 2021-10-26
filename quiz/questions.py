@@ -24,6 +24,8 @@ class Questions(ABC):
         This function should receive a number, and return the provided number with 2 added to it
         """
 
+        return NotImplemented
+
     # Course Questions #
     """
     These questions are structured around the Python 2 course on codecademy
@@ -161,3 +163,9 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    # 4.1 Taking a Vacation
+    """
+    New concepts covered:
+    - 
+    """
