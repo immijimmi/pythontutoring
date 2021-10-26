@@ -87,8 +87,8 @@ class Questions(ABC):
 
     def string_length_in_a_sentence(self, string):
         """
-        This function should receive a string, and print the sentence:
-        "Your string is X characters long!", replacing X with the length of the string
+        This function should receive a string, and return the following string:
+        "Your string is X characters long!", replacing X with the length of the input string
         """
 
         return NotImplemented
