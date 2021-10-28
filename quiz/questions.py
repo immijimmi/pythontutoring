@@ -202,3 +202,9 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    # 5.1. A Day at the Supermarket
+    """
+    New concepts covered:
+    - 
+    """
