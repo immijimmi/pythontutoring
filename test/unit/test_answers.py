@@ -11,6 +11,74 @@ from quiz import Answers
 def answers():
     return Answers()
 
+@pytest.fixture
+def random_params():
+    class RandomParams:
+        def __init__(self):
+            self.magnitude = 10
+            """
+            The above atribute is an arbitrary value which determines how big and varied method outputs are.
+            It should not be set to less than 5
+            """
+
+        @property
+        def letter_list(self):
+            return self._get_letter_list()
+
+        @property
+        def upper_letter_list(self):
+            return self._get_letter_list(upper=True, lower=False)
+
+        @property
+        def lower_letter_list(self):
+            return self._get_letter_list(upper=False, lower=True)
+
+        @property
+        def int_list(self):
+            return [random.randrange(-self.magnitude, self.magnitude) for i in range(self.magnitude)]
+
+        @property
+        def even_int_list(self):
+            is_magnitude_odd = self.magnitude % 2 != 0
+
+            return [
+                random.randrange(-self.magnitude + is_magnitude_odd, self.magnitude + is_magnitude_odd)
+                for i in range(self.magnitude)
+            ]
+
+        @property
+        def odd_int_list(self):
+            is_magnitude_even = self.magnitude % 2 == 0
+
+            return [
+                random.randrange(-self.magnitude + is_magnitude_even, self.magnitude + is_magnitude_even)
+                for i in range(self.magnitude)
+            ]
+
+        @property
+        def bool_list(self):
+            source = (True, False)
+
+            return [random.choice((True, False)) for i in range(self.magnitude)]
+
+        def _get_letter_list(self, upper=True, lower=True):
+            source = ""
+            result = []
+
+            if upper:
+                source += ascii_uppercase
+                # This will ensure that at least one char is upper if uppercase letters are included
+                result.append(random.choice(ascii_uppercase))
+            if lower:
+                source += ascii_lowercase
+                # Same here for lowercase letters
+                result.append(random.choice(ascii_lowercase))
+
+            chars_needed = self.magnitude - (upper + lower)
+            return result + [random.choice(source) for i in range(chars_needed)]
+
+    return RandomParams()
+
 
 class TestAnswers:
     def test_example_question(self, answers):
@@ -54,46 +122,56 @@ class TestAnswers:
     # From this point on, parameters passed to Answer methods should be dynamically generated
     # to prevent hard-coding the method return values using `if` statements
 
-    def test_is_all_uppercase(self, answers):
-        all_upper_string = "".join([random.choice(ascii_uppercase) for i in range(random.randint(1, 11))])
-        all_lower_string = "".join([random.choice(ascii_lowercase) for i in range(random.randint(1, 11))])
+    def test_is_all_uppercase(self, answers, random_params):
+        assert answers.is_all_uppercase(random_params.upper_letter_list)
+        assert not answers.is_all_uppercase(random_params.lower_letter_list)
+        assert not answers.is_all_uppercase(random_params.letter_list)
 
-        mixed_string = ""
-        mixed_string += "".join([random.choice(ascii_uppercase) for i in range(random.randint(1, 5))])
-        mixed_string += "".join([random.choice(ascii_lowercase) for i in range(random.randint(1, 5))])
-        mixed_string = list(mixed_string)
-        random.shuffle(mixed_string)
-        mixed_string = "".join(char for char in mixed_string)
+    def test_both_numbers_are_even(self, answers, random_params):
+        even_ints = random_params.even_int_list
+        odd_ints = random_params.odd_int_list
 
-        assert answers.is_all_uppercase(all_upper_string)
-        assert not answers.is_all_uppercase(all_lower_string)
-        assert not answers.is_all_uppercase(mixed_string)
+        assert answers.both_numbers_are_even(*even_ints[:2])
+        assert not answers.both_numbers_are_even(*odd_ints[:2])
 
-    def test_both_numbers_are_even(self, answers):
-        even_numbers = [random.randrange(-100, 100, 2), random.randrange(-100, 100, 2)]
-        odd_numbers = [random.randrange(-99, 101, 2), random.randrange(-99, 101, 2)]
+        assert not answers.both_numbers_are_even(even_ints[2], odd_ints[2])
+        assert not answers.both_numbers_are_even(odd_ints[3], even_ints[3])
 
-        assert answers.both_numbers_are_even(*even_numbers)
-        assert not answers.both_numbers_are_even(*odd_numbers)
+    def test_only_one_number_is_even(self, answers, random_params):
+        even_ints = random_params.even_int_list
+        odd_ints = random_params.odd_int_list
 
-        assert not answers.both_numbers_are_even(even_numbers[0], odd_numbers[0])
-        assert not answers.both_numbers_are_even(odd_numbers[0], even_numbers[0])
+        assert not answers.only_one_number_is_even(*even_ints[:2])
+        assert not answers.only_one_number_is_even(*odd_ints[:2])
 
-    def test_only_one_number_is_even(self, number_1, number_2):
-        even_numbers = [random.randrange(-100, 100, 2), random.randrange(-100, 100, 2)]
-        odd_numbers = [random.randrange(-99, 101, 2), random.randrange(-99, 101, 2)]
+        assert answers.only_one_number_is_even(even_ints[2], odd_ints[2])
+        assert answers.only_one_number_is_even(odd_ints[3], even_ints[3])
 
-        assert not answers.only_one_number_is_even(*even_numbers)
-        assert not answers.only_one_number_is_even(*odd_numbers)
-
-        assert answers.only_one_number_is_even(even_numbers[0], odd_numbers[0])
-        assert answers.only_one_number_is_even(odd_numbers[0], even_numbers[0])
-
-    def test_make_function_that_returns_object_type(self, answers):
+    def test_make_function_that_returns_object_type(self, answers, random_params):
         generated_func = answers.make_function_that_returns_object_type()
 
         # Commented out the below check because if someone figures out they can do this, they deserve a pass
         # assert generated_func is not type
 
-        for obj in (2, "b", True, ValueError, lambda: None):
+        params = [
+            *random_params.int_list,
+            *random_params.letter_list,
+            *random_params.bool_list,
+            Exception, KeyError, ValueError,
+            lambda: None, lambda: True, lambda: False, lambda: "", lambda: 0
+        ]
+        random.shuffle(params)
+
+        for obj in params:
             assert generated_func(obj) == type(obj)
+
+    def test_count_matching_list_items(self, answers, random_params):
+        for i in range(5):
+            target_list = random_params.letter_list
+            value_to_match = random.choice(target_list)
+            match_count = random.randint(1, 10)
+
+            target_list = list(filter(lambda obj: obj is not value_to_match, target_list))
+            target_list += [value_to_match] * match_count
+
+            assert answers.count_matching_list_items(target_list, value_to_match) == match_count

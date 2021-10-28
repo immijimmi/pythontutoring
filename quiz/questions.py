@@ -159,7 +159,7 @@ class Questions(ABC):
         """
         This function should return another new function.
         The new function should have one parameter, which will receive an object,
-        and should return the type of that object.
+        and should return the type of that object
         """
 
         return NotImplemented
@@ -169,3 +169,23 @@ class Questions(ABC):
     New concepts covered:
     - 
     """
+
+    # 5. Lists and Dictionaries
+    """
+    New concepts covered:
+    - Lists
+    - Dictionaries
+    - Indexing for lists & dictionaries
+    - Index slicing
+    - `for` loops
+    - Mutability
+    """
+
+    def count_matching_list_items(self, target_list, value_to_match):
+        """
+        This function should receive a list and another variable, and return how many times the value
+        of that variable can be found in the list.
+        For example, if target_list is ["k", "e", "k", "w"] and value_to_match is "k", this function should return 2
+        """
+
+        return NotImplemented
