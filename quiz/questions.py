@@ -189,3 +189,16 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    def are_all_keys_in_dict(self, list_of_keys, target_dict):
+        """
+        This function should receive a list and a dictionary. For each item in the list, the function should check if
+        that item exists as a key in the dictionary. If all items in the list are also keys in the dictionary,
+        the function should return True. However, if any item in the list is missing from the dictionary,
+        the function should return False.
+
+        The typical way to solve this question uses the `in` keyword. If you are not familiar with this keyword,
+        return to this question once you have learned how to use it
+        """
+
+        return NotImplemented

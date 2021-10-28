@@ -175,3 +175,22 @@ class TestAnswers:
             target_list += [value_to_match] * match_count
 
             assert answers.count_matching_list_items(target_list, value_to_match) == match_count
+
+    def test_are_all_keys_in_dict(self, answers, random_params):
+        letters = random_params.letter_list
+
+        list_of_keys = random_params.int_list
+        target_dict = {k: random.choice(letters) for k in list_of_keys}
+
+        assert answers.are_all_keys_in_dict(list_of_keys, target_dict)
+
+        list_of_keys = random_params.int_list
+        target_dict = {k: random.choice(letters) for k in list_of_keys}
+        del target_dict[random.choice(list_of_keys)]
+
+        assert not answers.are_all_keys_in_dict(list_of_keys, target_dict)
+
+        list_of_keys = random_params.int_list
+        target_dict = {}
+
+        assert not answers.are_all_keys_in_dict(list_of_keys, target_dict)
