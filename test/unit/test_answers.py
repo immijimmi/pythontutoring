@@ -154,9 +154,9 @@ class TestAnswers:
         # assert generated_func is not type
 
         params = [
-            *random_params.int_list,
-            *random_params.letter_list,
-            *random_params.bool_list,
+            *random_params.int_list[:3],
+            *random_params.letter_list[:3],
+            *random_params.bool_list[:3],
             Exception, KeyError, ValueError,
             lambda: None, lambda: True, lambda: False, lambda: "", lambda: 0
         ]
@@ -166,7 +166,7 @@ class TestAnswers:
             assert generated_func(obj) == type(obj)
 
     def test_count_matching_list_items(self, answers, random_params):
-        for i in range(5):
+        for i in range(10):
             target_list = random_params.letter_list
             value_to_match = random.choice(target_list)
             match_count = random.randint(1, 10)
