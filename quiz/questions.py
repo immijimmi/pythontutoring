@@ -131,7 +131,7 @@ class Questions(ABC):
         whether they are both even numbers (have a remainder of 0 when divided by 2)
         """
 
-        raise NotImplemented
+        return NotImplemented
 
     def only_one_number_is_even(self, number_1, number_2):
         """
@@ -139,7 +139,7 @@ class Questions(ABC):
         whether only one of them is even
         """
 
-        raise NotImplemented
+        return NotImplemented
 
     # 3.1. Pyglatin
     """
