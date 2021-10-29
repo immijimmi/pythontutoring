@@ -123,9 +123,9 @@ class TestAnswers:
     # to prevent hard-coding the method return values using `if` statements
 
     def test_is_all_uppercase(self, answers, random_params):
-        assert answers.is_all_uppercase(random_params.upper_letter_list)
-        assert not answers.is_all_uppercase(random_params.lower_letter_list)
-        assert not answers.is_all_uppercase(random_params.letter_list)
+        assert answers.is_all_uppercase("".join(random_params.upper_letter_list))
+        assert not answers.is_all_uppercase("".join(random_params.lower_letter_list))
+        assert not answers.is_all_uppercase("".join(random_params.letter_list))
 
     def test_both_numbers_are_even(self, answers, random_params):
         even_ints = random_params.even_int_list
