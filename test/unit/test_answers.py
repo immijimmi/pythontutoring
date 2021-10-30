@@ -42,7 +42,7 @@ def random_params():
             is_magnitude_odd = self.magnitude % 2 != 0
 
             return [
-                random.randrange(-self.magnitude + is_magnitude_odd, self.magnitude + is_magnitude_odd)
+                random.randrange(-self.magnitude + is_magnitude_odd, self.magnitude + is_magnitude_odd, 2)
                 for i in range(self.magnitude)
             ]
 
@@ -51,7 +51,7 @@ def random_params():
             is_magnitude_even = self.magnitude % 2 == 0
 
             return [
-                random.randrange(-self.magnitude + is_magnitude_even, self.magnitude + is_magnitude_even)
+                random.randrange(-self.magnitude + is_magnitude_even, self.magnitude + is_magnitude_even, 2)
                 for i in range(self.magnitude)
             ]
 
@@ -131,6 +131,8 @@ class TestAnswers:
         even_ints = random_params.even_int_list
         odd_ints = random_params.odd_int_list
 
+        with open("log.txt", "w") as f:
+            f.write(str(even_ints[:2]))
         assert answers.both_numbers_are_even(*even_ints[:2])
         assert not answers.both_numbers_are_even(*odd_ints[:2])
 
