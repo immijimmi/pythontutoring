@@ -131,8 +131,6 @@ class TestAnswers:
         even_ints = random_params.even_int_list
         odd_ints = random_params.odd_int_list
 
-        with open("log.txt", "w") as f:
-            f.write(str(even_ints[:2]))
         assert answers.both_numbers_are_even(*even_ints[:2])
         assert not answers.both_numbers_are_even(*odd_ints[:2])
 
@@ -196,3 +194,22 @@ class TestAnswers:
         target_dict = {}
 
         assert not answers.are_all_keys_in_dict(list_of_keys, target_dict)
+
+    def test_get_final_value(self, answers):
+        class Counter:
+            def __init__(self, limit):
+                self.limit = limit
+                self.count = 0
+
+            def increment(self):
+                self.count += 1
+
+                if self.count == self.limit:
+                    return self.count
+
+        for i in range(10):
+            random_limit = random.randint(1, 20)
+
+            c = Counter(random_limit)
+
+            assert answers.get_final_value(c.increment) == random_limit

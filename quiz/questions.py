@@ -208,3 +208,37 @@ class Questions(ABC):
     New concepts covered:
     - 
     """
+
+    # 6. Student Becomes the Teacher
+    """
+    New concepts covered:
+    - 
+    """
+
+    # 7. Lists and Functions
+    """
+    New concepts covered:
+    - 
+    """
+
+    # 7.1. Battleship!
+    """
+    New concepts covered:
+    - 
+    """
+
+    # 8. Loops
+    """
+    New concepts covered:
+    - `while` loops
+    - `break` statements
+    """
+
+    def get_final_value(self, target_function):
+        """
+        This function should receive a target function, and should call the target function repeatedly until
+        it returns a value that is not `None`. Once a value that is not `None` has been returned, this
+        function should also return that value
+        """
+
+        return NotImplemented
