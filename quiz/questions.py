@@ -242,3 +242,33 @@ class Questions(ABC):
         """
 
         return NotImplemented
+
+    # 8.1. Practice Makes Perfect
+    """
+    New concepts covered:
+    - 
+    """
+
+    # 9. Exam Statistics
+    """
+    New concepts covered:
+    - 
+    """
+
+    # 9. Advanced Topics in Python
+    """
+    New concepts covered:
+    - Dict iteration
+    - List comprehension
+    - Detailed index slicing (default slice parameters, step parameter)
+    - lambda functions
+    """
+
+    def get_every_other_item(self, target_list):
+        """
+        This function should receive a target list, and return a new list containing every other item
+        the target list contains starting with the first item it contains.
+        For example, if the target list is [1,3,5,7,9] this function should return [1,5,9].
+        """
+
+        return NotImplemented

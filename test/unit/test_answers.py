@@ -213,3 +213,16 @@ class TestAnswers:
             c = Counter(random_limit)
 
             assert answers.get_final_value(c.increment) == random_limit
+
+    def test_get_every_other_item(self, answers, random_params):
+        for test_number in range(10):
+            expected_result = []
+
+            target_list_size = random.randint(1, 10)
+            target_list = random_params.int_list[:target_list_size]
+
+            for target_list_index, item in enumerate(target_list):
+                if target_list_index % 2 == 0:
+                    expected_result.append(item)
+
+            assert answers.get_every_other_item(target_list) == expected_result
