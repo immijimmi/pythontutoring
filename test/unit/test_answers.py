@@ -166,7 +166,7 @@ class TestAnswers:
             assert generated_func(obj) == type(obj)
 
     def test_count_matching_list_items(self, answers, random_params):
-        for i in range(10):
+        for test_number in range(10):
             target_list = random_params.letter_list
             value_to_match = random.choice(target_list)
             match_count = random.randint(1, 10)
@@ -207,7 +207,7 @@ class TestAnswers:
                 if self.count == self.limit:
                     return self.count
 
-        for i in range(10):
+        for test_number in range(10):
             random_limit = random.randint(1, 20)
 
             c = Counter(random_limit)
