@@ -214,7 +214,7 @@ class TestAnswers:
 
             assert answers.get_final_value(c.increment) == random_limit
 
-    def test_get_every_other_item(self, answers, random_params):
+    def test_get_every_other_list_item(self, answers, random_params):
         for test_number in range(10):
             expected_result = []
 

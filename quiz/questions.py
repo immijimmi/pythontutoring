@@ -264,7 +264,7 @@ class Questions(ABC):
     - lambda functions
     """
 
-    def get_every_other_item(self, target_list):
+    def get_every_other_list_item(self, target_list):
         """
         This function should receive a target list, and return a new list containing every other item
         the target list contains starting with the first item it contains.
